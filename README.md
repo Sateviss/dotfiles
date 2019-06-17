@@ -1,1 +1,3 @@
-# i3configs
+# dotfiles
+
+here be my dotfiles
