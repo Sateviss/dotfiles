@@ -9,4 +9,4 @@ if [ $# -eq 0 ]
 else
     feh --bg-fill $1 || feh --bg-fill $wp/$1
 fi
-date >> /home/sateviss/time
+#date >> /home/sateviss/time

@@ -2,7 +2,7 @@
 Description=Change background every second
 
 [Timer]
-OnUnitActiveSec=2h
+OnCalendar=*:0:0
 Unit=set-bg.service
 
 [Install]
