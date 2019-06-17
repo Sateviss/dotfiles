@@ -271,11 +271,11 @@ gaps inner 15
 gaps outer 0
 
 exec --no-startup-id "compton"
-exec --no-startup-id '$wake_usb.sh'
+exec --no-startup-id 'wake_usb'
 exec --no-startup-id "conky"
 exec --no-startup-id "gnome-session"
 # exec --no-startup-id "setxkbmap -layout us,ru -variant mac,mac -option grp:win_space_toggle -option grp:caps_toggle"
 exec "setxkbmap -layout us,ru -option grp:win_space_toggle"
 exec --no-startup-id "xmodmap /home/sateviss/.xmodmap"
 exec --no-startup-id "dispwin /home/color.icc"
-exec --no-startup-id "feh --bg-fill $CONFIG_DIR/cheat_paper.png"
+exec --no-startup-id "set_bg"
