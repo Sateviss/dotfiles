@@ -1,4 +1,0 @@
-#! /bin/sh
-
-layout=$(xkblayout-state print "%s")
-echo ${layout^^}
