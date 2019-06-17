@@ -1,0 +1,3 @@
+#! /bin/sh
+
+man -k . | awk '{print $1}' | rofi -dmenu -sort -sorting-method `fzf` | xargs man -Tpdf | zathura -
