@@ -1,6 +1,11 @@
 #! /bin/sh
 
-mkdir ~/Pictures 2> /dev/null && mkdir ~/Pictures/Wallpapers && echo "Creted $(realpath ~)/Pictures/Wallpapers" 2> /dev/null
+if mkdir ~/Pictures/Wallpapers 2> /dev/null; then
+    echo "Created $(realpath ~)/Pictures/Wallpapers"
+else
+    mkdir ~/Pictures 2> /dev/null
+    $(mkdir ~/Pictures/Wallpapers 2> /dev/null) && echo "Created $(realpath ~)/Pictures/Wallpapers"
+fi
 
 while read p; do
     name=$(echo $p | awk '{print $1}')
