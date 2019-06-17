@@ -8,11 +8,13 @@
 #     export CONFIG_DIR=$SCRIPTPATH >> ~/.profile
 # fi
 
-echo "Stowing modules from module_list..."
+echo "Stowing modules from $(tput bold)module_list$(tput sgr0)..."
 
-for module in $(cat module_list); do
-    stow $module && echo "Stowed $(tput bold)$module$(tput sgr0)"
-done
+while read module; do
+    dir=$(echo $module | awk '{print $1}')
+    mod=$(echo $module | awk '{print $2}')
+    stow --target=$dir $mod && echo "Stowed $(tput bold)$mod$(tput sgr0) to $(tput bold)$dir$(tput sgr0)"
+done < module_list
 
 echo "Modules stowed!"
 

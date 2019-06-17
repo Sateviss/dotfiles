@@ -1,11 +1,12 @@
-i3
-i3blocks
-rofi
-polybar
-conky
-compton
-bin
-themes
-bashrc
-dunst 
-ranger
+/home/sateviss/     i3
+/home/sateviss/     i3blocks
+/home/sateviss/     rofi
+/home/sateviss/     polybar
+/home/sateviss/     conky
+/home/sateviss/     compton
+/home/sateviss/     themes
+/home/sateviss/     bashrc
+/home/sateviss/     dunst 
+/home/sateviss/     ranger
+/home/sateviss/     systemd
+/usr/local/         scripts

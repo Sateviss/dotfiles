@@ -1,0 +1,12 @@
+#! /bin/sh
+
+wp=/home/sateviss/Pictures/Wallpapers
+
+if [ $# -eq 0 ]
+  then
+    cd $wp
+    feh --bg-fill $(ls | shuf -n 1)
+else
+    feh --bg-fill $1 || feh --bg-fill $wp/$1
+fi
+date >> /home/sateviss/time

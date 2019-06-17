@@ -1,0 +1,11 @@
+[Unit]
+Description=Change background
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/set_bg
+# ExecStop=
+# RemainAfterExit=false
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Change background every second
+
+[Timer]
+OnUnitActiveSec=2h
+Unit=set-bg.service
+
+[Install]
+WantedBy=default.target
