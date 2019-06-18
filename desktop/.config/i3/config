@@ -55,9 +55,10 @@ exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1
 bindsym $mod+Shift+Ctrl+s exec shutdown now # Easier locking
 bindsym $mod+Shift+Ctrl+r exec reboot # Easier locking
 
-bindsym $mod+Shift+w exec google-chrome-stable # Easier locking
-bindsym $mod+Shift+d exec i3-sensible-terminal -e ranger # Easier locking
-
+bindsym $mod+Shift+w exec google-chrome-stable                  # Launch chrome
+bindsym $mod+Shift+o exec i3-sensible-terminal -e ranger        # Launch ranger
+bindsym $mod+Shift+d exec discord                               # Launch discord
+bindsym $mod+Shift+t exec telegram                              # Launch telegram 
 
 ### Backlight ###
 # Note: If light doesn't work, install xbacklight and 1) uncomment the two lines below.
