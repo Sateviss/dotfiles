@@ -1,0 +1,5 @@
+#! /bin/sh
+
+cd $CONFIG_DIR
+vi ./desktop/.config/i3/config
+

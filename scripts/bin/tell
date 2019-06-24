@@ -1,3 +1,7 @@
 #! /bin/sh
 
-man -k . | awk '{print $1}' | rofi -dmenu -sort | xargs man -Tpdf | zathura -
+if [ $# -eq 0 ]; then
+    man -k . | awk '{print $1}' | rofi -dmenu -sort | xargs man -Tpdf | zathura -
+else
+    man -Tpdf $1 | zathura -
+fi    
