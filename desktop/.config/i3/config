@@ -22,7 +22,7 @@
 # Variable setting
 set $defaultmod Mod1
 exec export TERMINAL=xfce4-terminal
-set $mod Mod1
+set $mod Mod4
 set $up i
 set $down k
 set $left j
@@ -61,7 +61,9 @@ bindsym $mod+Shift+o exec i3-sensible-terminal -e ranger        # Launch ranger
 bindsym $mod+Shift+v exec i3-sensible-terminal -e "vim $CONFIG_DIR/desktop/.config/i3/config"          # Edit *this* file
 bindsym $mod+Shift+d exec discord                               # Launch discord
 bindsym $mod+Shift+t exec telegram                              # Launch telegram 
-bindsym $mod+Shift+F1 exec tell                                 # Launch tell 
+bindsym $mod+Shift+m exec tell                                  # Launch tell
+bindsym $mod+Shift+s exec set_bg                                # Launch set_bg
+bindsym $mod+Shift+x exec killall -9 -r .*\.exe                 # Killall .exe files
 
 ### Backlight ###
 # Note: If light doesn't work, install xbacklight and 1) uncomment the two lines below.
@@ -298,8 +300,8 @@ exec --no-startup-id "compton"
 exec --no-startup-id 'wake_usb'
 exec --no-startup-id "conky"
 exec --no-startup-id "gnome-session"
-# exec --no-startup-id "setxkbmap -layout us,ru -variant mac,mac -option grp:win_space_toggle -option grp:caps_toggle"
-exec "setxkbmap -layout us,ru -option grp:win_space_toggle"
+# exec --no-startup-id "setxkbmap -layout us,ru -variant mac,mac -option grp:caps_toggle"
+exec "setxkbmap -layout us,ru -option grp:caps_toggle"
 exec --no-startup-id "xmodmap /home/sateviss/.xmodmap"
 exec --no-startup-id "dispwin /home/color.icc"
 exec --no-startup-id "set_bg"
