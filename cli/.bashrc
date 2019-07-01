@@ -22,5 +22,9 @@ fi
 PS1="\[\033[38;5;8m\]\t\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;7m\]@\[$(tput sgr0)\]\[\033[38;5;201m\]\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \w\\$ \[$(tput sgr0)\]"
 export PATH="~/.bin:$PATH"
 export COLOR=$(echo colour$((0x$(echo $(whoami)@$(hostname) | shasum | cut -c1-2))))
+
+alias ll="ls -lAh"
+alias gi="cd /run/media/$USER"
+
 HISTSIZE=
 HISTFILESIZE=
