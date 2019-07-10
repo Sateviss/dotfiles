@@ -70,11 +70,10 @@ separator=true
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-# [memory]
-# label=MEM
-# separator=true
-# interval=10
-# min_width=MEM 100/100g (100%)
+[memory]
+label=MEM
+separator=true
+interval=10
 
 # [memory]
 # label=SWAP
@@ -109,27 +108,27 @@ interval=10
 separator=true
 
 # [bandwidth]
-# #INTERFACE=eth0
+# INTERFACE="enp30s0"
 # interval=5
+
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-# [cpu_usage]
-# label=CPU
-# interval=10
-# min_width=CPU 100.00%
-# separator=true
-# #separator=false
+[cpu_usage]
+label=CPU
+interval=10
+separator=true
+#separator=false
 
 # Temperature
 #
 # Support multiple chips, though lm-sensors.
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-# [temperature]
-# label=TEMP
-# interval=10
+[temperature]
+label=TEMP
+interval=10
 
 
 

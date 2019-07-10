@@ -25,6 +25,6 @@ export COLOR=$(echo colour$((0x$(echo $(whoami)@$(hostname) | shasum | cut -c1-2
 
 alias ll="ls -lAh"
 alias gi="cd /run/media/$USER"
-
+alias untar="tar -xvf"
 HISTSIZE=
 HISTFILESIZE=
