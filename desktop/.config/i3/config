@@ -184,6 +184,7 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -299,10 +300,11 @@ gaps outer 0
 exec --no-startup-id "compton"
 exec --no-startup-id 'wake_usb'
 exec --no-startup-id "conky"
-exec --no-startup-id "gnome-session"
+exec --no-startup-id "gnome-session-i3"
 # exec --no-startup-id "setxkbmap -layout us,ru -variant mac,mac -option grp:caps_toggle"
 exec "setxkbmap -layout us,ru -option grp:caps_toggle"
 exec --no-startup-id "xmodmap /home/sateviss/.xmodmap"
 exec --no-startup-id "dispwin /home/color.icc"
 exec --no-startup-id "set_bg"
 exec --no-startup-id "pb"
+exec --no-startup-id "dunst"
