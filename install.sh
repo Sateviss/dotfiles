@@ -10,10 +10,12 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 
 echo "Stowing modules from $(tput bold)module_list$(tput sgr0)..."
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 while read module; do
     dir=$(echo $module | awk '{print $1}')
     mod=$(echo $module | awk '{print $2}')
-    stow --target=$dir $mod && echo "Stowed $(tput bold)$mod$(tput sgr0) to $(tput bold)$dir$(tput sgr0)"
+    stow --target=$dir "$mod" && echo "Stowed $(tput bold)$mod$(tput sgr0) to $(tput bold)$dir$(tput sgr0)"
 done < module_list
 
 echo "Modules stowed!"

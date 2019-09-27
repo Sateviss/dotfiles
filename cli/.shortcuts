@@ -1,0 +1,5 @@
+alias ll="ls -lAh"
+alias ll="ls -lAh"
+alias gi="cd /run/media/$USER"
+alias pg="ping google.com -c 10"
+alias untar="tar -xvf"
