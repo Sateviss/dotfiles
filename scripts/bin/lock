@@ -1,0 +1,3 @@
+#! /bin/sh
+
+rm -f /tmp/screen.* && scrot /tmp/screen.png && convert /tmp/screen.png -blur 0x10 -level 0,150% -stroke white -strokewidth 2 -font Comic-Sans-MS -gravity center -pointsize 120 -draw "text 0, -300 'LOCKED'" -draw "text 0, 300 '@$(whoami)'" /tmp/screen.blurred.png && i3lock -i /tmp/screen.blurred.png && rm /tmp/screen.*

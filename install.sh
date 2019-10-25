@@ -9,9 +9,9 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 # fi
 
 echo "Stowing modules from $(tput bold)module_list$(tput sgr0)..."
-
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
+set +e
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim | 
+set -e
 while read module; do
     dir=$(echo $module | awk '{print $1}')
     mod=$(echo $module | awk '{print $2}')
