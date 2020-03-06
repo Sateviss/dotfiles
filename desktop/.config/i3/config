@@ -19,13 +19,14 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Variable setting
+
 set $defaultmod Mod1
 set $TERMINAL kitty
 set $mod Mod4
-set $up i
-set $down k
-set $left j
-set $right l
+#set $up i
+#set $down k
+#set $left j
+#set $right l
 
 set $col_bg #14141460
 set $col_tx #dab9f6
@@ -35,7 +36,6 @@ set $col_ua #101010
 set $col_ut #404040
 set $col_ur #ffb9f6
 set $col_hi #dab9f6
-
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -107,10 +107,10 @@ bindsym $mod+m exec tell
  #-o 0.8 -h 50 -w 500 -x 680 -y 490
 
 # change focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+# bindsym $mod+$left focus left
+# bindsym $mod+$down focus down
+# bindsym $mod+$up focus up
+# bindsym $mod+$right focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -119,10 +119,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+# bindsym $mod+Shift+$left move left
+# bindsym $mod+Shift+$down move down
+# bindsym $mod+Shift+$up move up
+# bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -160,6 +160,9 @@ focus_follows_mouse no
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# Stick a window on all workspaces
+bindsym $mod+t sticky toggle
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -185,7 +188,6 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -213,7 +215,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+Ctrl+l exec "lock"
+bindsym $mod+l exec "lock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -223,10 +225,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 5 px or 5 ppt
-        bindsym $down       resize grow height 5 px or 5 ppt
-        bindsym $up         resize shrink height 5 px or 5 ppt
-        bindsym $right      resize grow width 5 px or 5 ppt
+        # bindsym $left       resize shrink width 5 px or 5 ppt
+        # bindsym $down       resize grow height 5 px or 5 ppt
+        # bindsym $up         resize shrink height 5 px or 5 ppt
+        # bindsym $right      resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left        resize shrink width 5 px or 5 ppt
@@ -314,3 +316,6 @@ exec --no-startup-id "pb"
 exec --no-startup-id "dunst"
 exec --no-startup-id "gnome-screensaver"
 exec --no-startup-id "gpaste-client"
+exec --no-startup-id "blugon"
+exec --no-startup-id "/home/ypisarchyk/dotfiles/scripts/bin/i3watcher.py"
+exec --no-startup-id xautolock -time 10 -locker "lock" &

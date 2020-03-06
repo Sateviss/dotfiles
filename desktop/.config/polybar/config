@@ -18,7 +18,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #80141414
+background = #A0141414
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -45,18 +45,17 @@ line-color = #f00
 border-size = 0 
 border-color = #00000000
 
-padding-left = 2
-padding-right = 2
+padding-left = 0
+padding-right = 0
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
-font-1 = Fira Code Medium:pixelsize=12;1
-font-2 = unifont:fontformat=truetype:size=10:antialias=false;0
-font-3 = siji:pixelsize=12;1
-font-0 = FontAwesome:pixelsize=12;1
+font-0 = NotoMono Nerd Font:pixelsize=12;1
+font-1 = sans serif:pixelsize=12;1
+font-2 = NotoEmoji Nerd Font:pixelsize=16;1
 
-modules-left = bspwm i3 memory cpu wlan eth battery temperature x
+modules-left = bspwm i3 memory cpu temperature wlan eth battery x
 modules-center = xwindow
 modules-right = alsa pulseaudio xbacklight xkeyboard date powermenu
 
@@ -132,12 +131,13 @@ label-empty-padding = 2
 ; label-separator = |
 
 [module/i3]
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-default =  
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-default =  
 
 type = internal/i3
 format = <label-state> <label-mode>
@@ -147,12 +147,12 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 0
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%:%icon%
+label-focused =%index%:%icon%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
@@ -216,14 +216,15 @@ type = internal/cpu
 interval = 2
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
-label = CPU %percentage:2%%
+label =  %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
-label =RAM %gb_used%
+label = %gb_used%
+label-font = 2
 
 [module/wlan]
 type = internal/network
@@ -249,12 +250,12 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp30s0
+interface = enp3s0
 interval = 3.0
 
 format-connected-underline = ${colors.primary}
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = ETH ⬇%downspeed% ⬆%upspeed%
+label-connected =⬇%downspeed% ⬆%upspeed%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -281,12 +282,13 @@ label = %date%  %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+format-volume = <label-volume> 
+;<bar-volume>
+label-volume =  墳 %percentage%%
 label-volume-foreground = ${root.foreground}
 format-volume-underline = ${colors.primary}
 
-label-muted = 🔇 muted
+label-muted =  
 label-muted-foreground = #666
 format-muted-underline = ${colors.primary}
 
@@ -299,12 +301,12 @@ bar-volume-foreground-4 = ${colors.primary}
 bar-volume-foreground-5 = ${colors.primary}
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = |
+bar-volume-indicator = / 
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-fill = < 
+bar-volume-fill-font = 0
+bar-volume-empty = >
+bar-volume-empty-font = 0
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 ; [module/alsa]
@@ -373,15 +375,15 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp> <label>
+format = <label>
 format-underline = ${colors.primary}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-label = TMP %temperature-c%
-label-warn =TMP !%temperature-c%!
+label =  %temperature-c%
+label-warn =  %temperature-c%
 label-warn-foreground = ${colors.secondary}
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
@@ -417,7 +419,7 @@ menu-2-0 = POWER OFF
 menu-2-0-exec = systemctl poweroff
 
 menu-3-0 = HIBERNATE
-menu-3-0-exec = systemctl hibernate
+menu-3-0-exec =  dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock && systemctl hibernate
 
 menu-4-0 = LOGOUT
 menu-4-0-exec = pkill -KILL -u $(whoami) 

@@ -46,6 +46,6 @@ filetype plugin indent on    " required
 
 
 set showcmd
-set relativenumber
+set number relativenumber
 syntax on
 

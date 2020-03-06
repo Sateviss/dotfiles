@@ -1,6 +1,6 @@
 #! /bin/sh
 
-wp=/home/sateviss/Pictures/Wallpapers
+wp="/home/ypisarchyk/Pictures/Wallpapers"
 
 if [ $# -eq 0 ]
   then

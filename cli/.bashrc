@@ -20,12 +20,22 @@ fi
 
 # PS1="\[\e[0;37m\]\u@\h \w\$ \[\e[m\] "
 PS1="\[\033[38;5;8m\]\t\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;7m\]@\[$(tput sgr0)\]\[\033[38;5;201m\]\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \w\\$ \[$(tput sgr0)\]"
-export PATH="~/.bin:$PATH"
-export PATH="~/dotnet:$PATH"
-export COLOR=$(echo colour$((0x$(echo $(whoami)@$(hostname) | shasum | cut -c1-2))))
+# export PATH="~/.bin:$PATH"
+# export PATH="~/Scripts:$PATH"
+# export PATH="~/dotnet:$PATH"
+export PATH="~/.gem/ruby/2.6.0/bin:$PATH"
+source ~/.shortcuts
 
-alias ll="ls -lAh"
-alias gi="cd /run/media/$USER"
-alias untar="tar -xvf"
-HISTSIZE=
-HISTFILESIZE=
+mcat() {
+  datestamp=$(date +%s)
+  pandoc -s -o /tmp/$datestamp.pdf $1
+  zathura /tmp/$datestamp.pdf
+  rm /tmp/$datestamp.pdf
+}
+
+alias dlogin="docker login $DELTIX_PROGET_URL --username $DELTIX_PROGET_USER --password $DELTIX_PROGET_PASS"
+alias dlogout="docker logout $DELTIX_PROGET_URL"
+HISTSIZE=10000
+HISTFILESIZE=10M
+
+source /home/ypisarchyk/dotfiles/old_bashrc
